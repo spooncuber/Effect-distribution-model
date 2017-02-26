@@ -1,0 +1,17 @@
+The following are changes compared with the commmit called 'amend related work' on git.
+
+Sec. II
+Change a few insignificant words.
+
+Sec. III
+Add some sentences to introduce the concept of subgoal.(leave this change alone, I don't think this change will make it better.)
+
+Sec. IV
+Change some words, which I think they're more suitable for paper.
+Part A: Use the word 'subgoal' more, I think it's an excellent word to improve significance of trajectory fitting.
+Part D: Introduce two weight variables alpha and beta in Eq. 2 (same in Eq.3), and explain how to avoid edge effect of KDE in our method.
+
+Sec. V
+Replace the evaluation table by a pie figure, cause the old table looks poor.
+Add a figure and detailed description for destination prediction.
+
