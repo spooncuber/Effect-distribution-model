@@ -1,0 +1,49 @@
+# I haven't learned how to apply this script to generate video, but I think I understant how it works. 
+# So I check the video and choose the fragments that I think is good for explanation.
+# I replace the first fragment because the old one doesn't represent an obvious result.
+# I also choose last two fragments to show the limitation of method.
+# And make the note a break between two fragments.
+
+# One suggestion:
+# Can you move the explanatory note to the top? Cause it cover some pedetrians now, and there are few pedestrians at the top.
+
+
+
+V1s=115.0
+V1e=133.0
+V2s=83.0
+V2e=90.0
+V3s=207.0
+V3e=217.0
+V4s=379.0
+V4e=390.0
+
+S0t="'Pedestrian trajectories deflect in response to each other.'"
+S0s=10
+S0e=14.0
+S1ta="'We build a data-driven model using a KDE to predict'"
+S1tb="'who caused a deflection in a trajectory.'"
+S1s=14.0
+S1e=19.0
+S2ta="'Prediction of focus agent (blue +) occurs where the'"
+S2tb="'blue line turns green(avoiding case).'"
+S2s=19.0
+S2e=23.0
+S3ta="'Model predicts likelihood that each person causes'"
+S3tb="'deflection of focus agent (red dot is max likelihood).'"
+S3s=23.0
+S3e=27.0
+S4ta="'The model also anticipates off-screen pedestrians'"
+S4tb="'(red dot at right side of screen).'"
+S4s=28.0
+S4e=34.0
+S4ta="'The pedestrian is influencing by environment obstacle,'"
+S4tb="'which is a limitation here.'"
+S5s=35.0
+S5e=44.0
+S4ta="'The pedestrian is influencing by different coming groups,'"
+S4tb="'which is another hard problem.'"
+S6s=45.0
+S6e=55.0
+
+
