@@ -57,23 +57,23 @@ S2tb="'blue line turns green.'"
 S2s=19.0
 S2e=23.0
 S3ta="'Model predicts likelihood that each person causes'"
-S3tb="'deflection of focus agent.(avoiding case)'"
+S3tb="'deflection of focus agent (avoiding case).'"
 S3s=23.0
 S3e=27.0
-S4ta="'Red dot means the most likely influencer to focus agent.'"
-S4tb="'(returning case)'"
+S4ta="'Red dot means the most likely influencer to focus'"
+S4tb="'agent (returning case).'"
 S4s=28.0
 S4e=34.0
 S5ta="'The model also anticipates off-screen pedestrians'"
 S5tb="'(red dot at right side of screen).'"
 S5s=35.0
 S5e=41.0
-S6ta="'The pedestrian is influencing by environment obstacle,'"
-S6tb="'which is a limitation here.'"
+S6ta="'This pedestrian is influenced by a static obstacle,'"
+S6tb="'which we do not (yet) model.'"
 S6s=42.0
 S6e=51.0
-S7ta="'The pedestrian is influenced by many pedestrians'"
-S7tb="'at once, which is remains a hard problem.'"
+S7ta="'This pedestrian is influenced by many pedestrians'"
+S7tb="'at once, which remains a hard problem.'"
 S7s=52.0
 S7e=62.0
 
@@ -83,8 +83,9 @@ FILTER="-filter_complex \"
 [2:v] trim=$V2s:$V2e, setpts=PTS-$V2s/TB [s2];
 [2:v] trim=$V3s:$V3e, setpts=PTS-$V3s/TB [s3];
 [2:v] trim=$V4s:$V4e, setpts=PTS-$V4s/TB [s4];
-[0:v] [1:v] [s1] [s2] [s3] [s4] concat=6:1:0,
-split=6 [aa] [bb] [cc] [dd] [ee] [ff];
+[2:v] trim=$V5s:$V5e, setpts=PTS-$V5s/TB [s5];
+[0:v] [1:v] [s1] [s2] [s3] [s4] [s5] concat=7:1:0,
+split=9 [aa] [bb] [cc] [dd] [ee] [ff] [gg] [hh] [ii];
 [aa] trim=0:$S0s [one];
 [bb] trim=$S0s:$S0e, setpts=PTS-$S0s/TB, drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=20:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S0t [two];
 [cc] trim=$S1s:$S1e, setpts=PTS-$S1s/TB,
@@ -99,11 +100,23 @@ drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=50:fon
 drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=20:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S3ta,
 drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=50:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S3tb
 [five];
-[ff] trim=$S4s, setpts=PTS-$S4s/TB,
+[ff] trim=$S4s:$S4e, setpts=PTS-$S4s/TB,
 drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=20:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S4ta,
 drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=50:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S4tb
 [six];
-[one] [two] [three] [four] [five] [six] concat=6:1:0
+[gg] trim=$S5s:$S4e, setpts=PTS-$S5s/TB,
+drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=20:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S5ta,
+drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=50:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S5tb
+[seven];
+[hh] trim=$S6s:$S6e, setpts=PTS-$S6s/TB,
+drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=20:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S6ta,
+drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=50:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S6tb
+[eight];
+[ii] trim=$S7s, setpts=PTS-$S7s/TB,
+drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=20:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S7ta,
+drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=50:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S7tb
+[nine];
+[one] [two] [three] [four] [five] [six] [seven] [eight] [nine] concat=9:1:0
 \""
 
 CMD="ffmpeg
