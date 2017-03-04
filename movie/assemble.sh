@@ -62,19 +62,19 @@ S3s=23.0
 S3e=27.0
 S4ta="'Red dot means the most likely influencer to focus'"
 S4tb="'agent (returning case).'"
-S4s=28.0
+S4s=27.0
 S4e=34.0
 S5ta="'The model also anticipates off-screen pedestrians'"
 S5tb="'(red dot at right side of screen).'"
-S5s=35.0
+S5s=34.0
 S5e=41.0
 S6ta="'This pedestrian is influenced by a static obstacle,'"
 S6tb="'which we do not (yet) model.'"
-S6s=42.0
+S6s=41.0
 S6e=51.0
 S7ta="'This pedestrian is influenced by many pedestrians'"
 S7tb="'at once, which remains a hard problem.'"
-S7s=52.0
+S7s=51.0
 S7e=62.0
 
 
@@ -104,7 +104,7 @@ drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=50:fon
 drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=20:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S4ta,
 drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=50:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S4tb
 [six];
-[gg] trim=$S5s:$S4e, setpts=PTS-$S5s/TB,
+[gg] trim=$S5s:$S5e, setpts=PTS-$S5s/TB,
 drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=20:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S5ta,
 drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf:x=40:y=50:fontsize=30:box=1:boxcolor=black@1.0:fontcolor=white:text=$S5tb
 [seven];
